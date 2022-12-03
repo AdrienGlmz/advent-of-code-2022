@@ -1,21 +1,21 @@
 def get_input():
-    with open('inputs/day2.txt', 'r') as f:
-        lines = [elt.strip().split(' ') for elt in f.readlines()]
+    with open("inputs/day2.txt", "r") as f:
+        lines = [elt.strip().split(" ") for elt in f.readlines()]
     return lines
 
 
 def get_score(opponent_move, my_move):
-    if my_move == 'X':
+    if my_move == "X":
         score = 1
-    elif my_move == 'Y':
+    elif my_move == "Y":
         score = 2
     else:
         score = 3
 
     if (
-            (opponent_move == 'C' and my_move == 'X') or
-            (opponent_move == 'B' and my_move == 'Z') or
-            (opponent_move == 'A' and my_move == 'Y')
+        (opponent_move == "C" and my_move == "X")
+        or (opponent_move == "B" and my_move == "Z")
+        or (opponent_move == "A" and my_move == "Y")
     ):
         # win
         score += 6
@@ -26,24 +26,24 @@ def get_score(opponent_move, my_move):
 
 
 def get_move(opponent_move, outcome):
-    if outcome == 'X':
+    if outcome == "X":
         # need to loose
-        if opponent_move == 'A':
-            move = 'Z'
-        elif opponent_move == 'B':
-            move = 'X'
+        if opponent_move == "A":
+            move = "Z"
+        elif opponent_move == "B":
+            move = "X"
         else:
-            move = 'Y'
-    elif outcome == 'Y':
+            move = "Y"
+    elif outcome == "Y":
         # draw
         move = chr(ord(opponent_move) + 23)
     else:
-        if opponent_move == 'A':
-            move = 'Y'
-        elif opponent_move == 'B':
-            move = 'Z'
+        if opponent_move == "A":
+            move = "Y"
+        elif opponent_move == "B":
+            move = "Z"
         else:
-            move = 'X'
+            move = "X"
     return opponent_move, move
 
 

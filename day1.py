@@ -1,18 +1,24 @@
 def get_input():
-    with open('inputs/day1.txt', 'r') as f:
-        lines = ''.join(f.readlines())
+    with open("inputs/day1.txt", "r") as f:
+        lines = "".join(f.readlines())
     return lines
 
 
 def part1():
     lines = get_input()
-    calories = [sum([int(e) if e else 0 for e in elt.split('\n')]) for elt in lines.split('\n\n')]
+    calories = [
+        sum([int(e) if e else 0 for e in elt.split("\n")])
+        for elt in lines.split("\n\n")
+    ]
     return max(calories)
 
 
 def part2():
     lines = get_input()
-    calories = [sum([int(e) if e else 0 for e in elt.split('\n')]) for elt in lines.split('\n\n')]
+    calories = [
+        sum([int(e) if e else 0 for e in elt.split("\n")])
+        for elt in lines.split("\n\n")
+    ]
     return sum(sorted(calories, reverse=True)[:3])
 
 
